@@ -8,6 +8,7 @@ import {
 import { Home } from './src/screens/Home';
 import { Finish } from './src/screens/Finish';
 import { Cart } from './src/screens/Cart';
+import { Details } from './src/screens/details';
 
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Cart />
+      <Details />
     </>
   );
 }

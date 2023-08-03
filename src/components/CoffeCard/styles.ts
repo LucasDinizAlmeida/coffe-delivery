@@ -30,7 +30,8 @@ export const styles = StyleSheet.create({
     textVolume: {
         color: THEME.COLORS.GREY_400,
         fontFamily: THEME.FONTS.REGULAR,
-        fontSize: 14
+        fontSize: 14,
+        marginBottom: 8
     },
     textPrice: {
         color: THEME.COLORS.GREY_100,

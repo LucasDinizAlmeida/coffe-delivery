@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 6,
-        backgroundColor: THEME.COLORS.BRAND_PURPLE_DARK
+        // backgroundColor: THEME.COLORS.BRAND_PURPLE_DARK
     },
     title: {
         color: THEME.COLORS.WHITE,

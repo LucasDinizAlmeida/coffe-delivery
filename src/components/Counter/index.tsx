@@ -5,10 +5,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { THEME } from "../../styles/theme";
 
 interface Props {
-    amount: string
+    amount: string,
+    trash?: boolean
 }
 
-export function Counter({ amount }: Props) {
+export function Counter({ amount, trash = true}: Props) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -32,13 +33,16 @@ export function Counter({ amount }: Props) {
                         color={THEME.COLORS.BRAND_PURPLE_DARK} />
                 </TouchableOpacity>
 
-                <View style={styles.trashContainer}>
-                    <Ionicons 
-                        name="md-trash-sharp" 
-                        size={24} 
-                        color={THEME.COLORS.BRAND_PURPLE_DARK} 
-                    />
-                </View>
+                {
+                    trash &&
+                    <View style={styles.trashContainer}>
+                        <Ionicons 
+                            name="md-trash-sharp" 
+                            size={24} 
+                            color={THEME.COLORS.BRAND_PURPLE_DARK} 
+                        />
+                    </View>    
+                }
             </View>
         </View>
     )

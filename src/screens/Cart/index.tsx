@@ -35,7 +35,7 @@ export function Cart() {
                     </Text>
                 </View>
 
-                <Button title="CONFIRMAR PEDIDO"/>
+                <Button title="CONFIRMAR PEDIDO" selectColor="yellow"/>
             </View>
         </View>
     )

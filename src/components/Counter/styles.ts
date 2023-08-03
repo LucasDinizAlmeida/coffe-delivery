@@ -4,7 +4,6 @@ import { THEME } from "../../styles/theme";
 export const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        marginTop: 8
     },
     content: {
         flexDirection: 'row'

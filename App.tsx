@@ -9,6 +9,7 @@ import { Home } from './src/screens/Home';
 import { Finish } from './src/screens/Finish';
 import { Cart } from './src/screens/Cart';
 import { Details } from './src/screens/details';
+import { Routes } from './src/routes';
 
 
 export default function App() {
@@ -31,7 +32,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Home />
+      <Routes />
     </>
   );
 }

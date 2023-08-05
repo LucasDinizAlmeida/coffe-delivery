@@ -1,11 +1,26 @@
-import { Image, View, Text } from "react-native";
+import { Image, View, Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { styles } from "./styles";
 import coffePng from '../../assets/coffe01.png'
 
-export function CardPromotion() {
+interface Props extends TouchableOpacityProps {
+    data: {
+        id: string;
+        type: string;
+        name: string;
+        price: string;
+        description: string;
+        image: string;
+    }
+}
+
+export function CardPromotion({ data, ...rest }: Props) {
+
+    const {type, name, description, price } = data
 
     return (
-        <View>
+        <TouchableOpacity 
+            {...rest}
+        >
             <View 
                 style={{ flex: 1, height: 50 } }
             />
@@ -17,19 +32,19 @@ export function CardPromotion() {
 
                 </View>
                 <View style={styles.typeContainer}>
-                    <Text style={styles.typeText}>TRADICIONAL</Text>
+                    <Text style={styles.typeText}>{type}</Text>
                 </View>
                 <Text style={styles.name}>
-                    Latte
+                    {name}
                 </Text>
                 <Text style={styles.description}>
-                    Café expresso com o dobro de leite e espuma cremosa
+                    {description}
                 </Text>
                 <Text style={styles.price}>
-                    R$ 9,90
+                    {price}
                 </Text>
             </View>
 
-        </View>
+            </TouchableOpacity>
     )
 }

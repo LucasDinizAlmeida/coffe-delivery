@@ -2,8 +2,12 @@ import { View, Text } from "react-native";
 import { styles } from "./styles";
 import Motoboy from '../../assets/Illustration.svg'
 import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
 export function Finish() {
+
+    const { navigate } = useNavigation<AppNavigatorRoutesProps>()
 
     return (
         <View style={styles.container}>
@@ -20,6 +24,7 @@ export function Finish() {
 
             <View style={styles.button}>
                 <Button 
+                    onPress={() => navigate('home')}
                     title="IR PARA A HOME"
                 />
             </View>

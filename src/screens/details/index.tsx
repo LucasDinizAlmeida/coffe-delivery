@@ -4,8 +4,16 @@ import { HeaderDetails } from "../../components/HeaderDetails";
 import { Counter } from "../../components/Counter";
 import cup from '../../assets/cup.png'
 import SmokeSvg from '../../assets/Smoke.svg'
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
 export function Details() {
+
+    const { navigate } = useNavigation<AppNavigatorRoutesProps>()
+
+    function handleConfirme() {
+        navigate('home')
+    }
 
     const { width } = useWindowDimensions()
 
@@ -65,6 +73,7 @@ export function Details() {
                     <Counter amount='1' trash={false}/>
                     <TouchableOpacity
                         style={[styles.button]}
+                        onPress={handleConfirme}
                     >
                         <Text style={styles.titleButton}>
                             ADCIONAR

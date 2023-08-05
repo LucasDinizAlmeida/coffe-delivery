@@ -1,11 +1,21 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { styles } from "./styles";
 import coffePng from '../../assets/coffe01.png'
+import { CoffesDataProps } from "../../data/coffesData";
 
-export function CatalogCard() {
+interface Props extends TouchableOpacityProps {
+    data: CoffesDataProps
+}
+
+export function CatalogCard({ data, ...rest }: Props) {
+
+    const { name, descreption, price } = data
 
     return (
-        <View style={styles.container}>
+        <TouchableOpacity 
+            style={styles.container}
+            {...rest}
+        >
            <Image 
                 style={{ marginRight: 8, marginTop: -55 }}
                 source={coffePng}
@@ -13,16 +23,16 @@ export function CatalogCard() {
 
            <View style={{ flex: 1 }}>
                 <Text style={styles.name}>
-                    Expresso Tradicional
+                    {name}
                 </Text>
 
                 <Text style={styles.description}>
-                    O tradicional café feito com água quente e grãos moídos
+                    {descreption}
                 </Text>
                 <Text style={styles.price}>
-                    R$ 9,90
+                    {price}
                 </Text>
            </View>
-        </View>
+        </TouchableOpacity>
     )
 }

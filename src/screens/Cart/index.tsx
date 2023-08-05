@@ -4,8 +4,16 @@ import { CartHeader } from "../../components/CartHeader";
 import { cardData } from "../../data/cartData";
 import { CoffeCard } from "../../components/CoffeCard";
 import { Button } from "../../components/Button";
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
 export function Cart() {
+
+    const { navigate } = useNavigation<AppNavigatorRoutesProps>()
+
+    function handleConfirme() {
+        navigate('finish')
+    }
 
     return (
         <View style={styles.container}>
@@ -35,7 +43,11 @@ export function Cart() {
                     </Text>
                 </View>
 
-                <Button title="CONFIRMAR PEDIDO" selectColor="yellow"/>
+                <Button 
+                    title="CONFIRMAR PEDIDO" 
+                    selectColor="yellow"
+                    onPress={handleConfirme}    
+                />
             </View>
         </View>
     )

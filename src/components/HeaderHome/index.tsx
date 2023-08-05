@@ -4,7 +4,11 @@ import { Ionicons } from '@expo/vector-icons';
 import { styles } from "./styles";
 import { THEME } from "../../styles/theme";
 
-export function HeaderHome() {
+interface Props {
+    handleNavigateCart: () => void
+}
+
+export function HeaderHome({ handleNavigateCart }: Props) {
 
     return (
         <View style={styles.container}>
@@ -19,7 +23,7 @@ export function HeaderHome() {
                 </Text>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={handleNavigateCart}>
                 <AntDesign 
                     name="shoppingcart" 
                     size={24} 

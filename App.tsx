@@ -1,15 +1,13 @@
 
+import 'react-native-gesture-handler';
 import { StatusBar, Text, View } from 'react-native';
 import { useFonts, Roboto_400Regular, Roboto_700Bold } from '@expo-google-fonts/roboto';
 
 import {
   BalooDa2_700Bold,
 } from '@expo-google-fonts/baloo-da-2';
-import { Home } from './src/screens/Home';
-import { Finish } from './src/screens/Finish';
-import { Cart } from './src/screens/Cart';
-import { Details } from './src/screens/details';
 import { Routes } from './src/routes';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 export default function App() {
@@ -26,14 +24,14 @@ export default function App() {
   }
 
   return (
-    <>
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <StatusBar
         barStyle="dark-content"
         backgroundColor="transparent"
         translucent
       />
       <Routes />
-    </>
+    </GestureHandlerRootView>
   );
 }
 

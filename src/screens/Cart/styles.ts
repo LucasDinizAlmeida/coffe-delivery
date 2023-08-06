@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     },
     itemsList: {
         flexGrow: 1,
-        padding: 32
+        // padding: 32
     },
     footer: {
         paddingHorizontal: 32,
@@ -31,5 +31,12 @@ export const styles = StyleSheet.create({
         color: THEME.COLORS.GREY_100,
         fontFamily: THEME.FONTS.BOLD_BALOO_DA_2,
         fontSize: 20
-    }
+    },
+      swipeableRemove: {
+        width: 90,
+        height: 116,
+        backgroundColor: THEME.COLORS.RED_LIGHT,
+        alignItems: 'center',
+        justifyContent: 'center'
+      }
 })

@@ -1,4 +1,5 @@
-import { View, Text, TextInput, ScrollView } from "react-native";
+import { useState } from "react";
+import { View, Text, TextInput, ScrollView, Pressable } from "react-native";
 import { styles } from "./styles";
 import { HeaderHome } from "../../components/HeaderHome";
 import { CardPromotion } from "../../components/CardPromotion";
@@ -9,10 +10,25 @@ import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
 import { coffesPromotionData } from "../../data/coffesPromotionData";
 import { coffesData } from "../../data/coffesData";
+import { FilterButton } from "../../components/FilterButton";
 
 export function Home() {
 
+    const [levels, setLevels] = useState([1, 2, 3]);
+
     const { navigate } = useNavigation<AppNavigatorRoutesProps>()
+
+    function handleLevelFilter(level: number) {
+        const levelAlreadySelected = levels.includes(level);
+    
+        if (levelAlreadySelected) {
+          if (levels.length > 1) {
+            setLevels(prevState => prevState.filter(item => item !== level));
+          }
+        } else {
+          setLevels(prevState => [...prevState, level]);
+        }
+      }
 
     return (
         <ScrollView 
@@ -50,7 +66,7 @@ export function Home() {
                             <CardPromotion 
                                 key={item.id}
                                 data={item}
-                                onPress={() => navigate('details', { id: item.id })}
+                                onPress={() => navigate('details', item)}
                             />
                         ))
                     }
@@ -67,25 +83,32 @@ export function Home() {
                     </Text>
 
                     <View style={styles.filter}>
-                        <View style={styles.filterButton}>
-                            <Text style={styles.typeText}>TRADICIONAIS</Text>
-                        </View>
-                        <View style={styles.filterButton}>
-                            <Text style={styles.typeText}>DOCES</Text>
-                        </View>
-                        <View style={styles.filterButton}>
-                            <Text style={styles.typeText}>ESPECIAS</Text>
-                        </View>
+                        <FilterButton 
+                            title="TRADICIONAIS"
+                            onPress={() => handleLevelFilter(1)}
+                            isChecked={levels.includes(1)}
+                        />
+                        <FilterButton 
+                            title="DOCES"
+                            onPress={() => handleLevelFilter(2)}
+                            isChecked={levels.includes(2)}
+                        />
+                        <FilterButton 
+                            title="ESPECIAIS"
+                            onPress={() => handleLevelFilter(3)}
+                            isChecked={levels.includes(3)}
+                        />
                     </View>
                 </View>
 
                 <ScrollView
                     contentContainerStyle={styles.itemsList}
                     showsVerticalScrollIndicator={false}
-                >
-                    <CoffeCatalog type="TRADICIONAIS" data={coffesData}/>
-                    <CoffeCatalog type="DOCES" data={coffesData}/>
-                    <CoffeCatalog type="ESPECIAIS" data={coffesData}/>
+                >   
+                    { levels.includes(1) && <CoffeCatalog type="TRADICIONAIS" data={coffesData}/>}
+                    { levels.includes(2) && <CoffeCatalog type="DOCES" data={coffesData}/>}
+                    { levels.includes(3) && <CoffeCatalog type="ESPECIAIS" data={coffesData}/>}
+                   
                 </ScrollView>
             </View>
             

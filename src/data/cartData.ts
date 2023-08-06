@@ -1,10 +1,19 @@
+export interface CoffeCartItemProps {
+    id: string,
+    name: string,
+    price: string,
+    amount: string
+    volume: string,
+    image: string,
+} 
+
 export const cardData = [
     {
         id: '1',
         type: 'doce',
         name: 'Latte',
         price: '990',
-        descreption: 'Café expresso com o dobro de leite e espuma cremosa',
+        description: 'Café expresso com o dobro de leite e espuma cremosa',
         volume: '270',
         image: 'coffe01.png'
     },
@@ -13,7 +22,7 @@ export const cardData = [
         type: 'tradicional',
         name: 'Mocaccino',
         price: '990',
-        descreption: 'Café expresso com calda de chocolate, pouco leite e espuma',
+        description: 'Café expresso com calda de chocolate, pouco leite e espuma',
         volume: '270',
         image: 'coffe02.png'
     },
@@ -22,7 +31,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -31,7 +40,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -40,7 +49,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -49,7 +58,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -58,7 +67,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -67,7 +76,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },
@@ -76,7 +85,7 @@ export const cardData = [
         type: 'especial',
         name: 'Irlandês',
         price: '990',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         volume: '270',
         image: 'coffe03.png'
     },

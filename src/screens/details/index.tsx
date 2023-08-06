@@ -1,18 +1,46 @@
-import { View, Text, TouchableOpacity, Image, useWindowDimensions } from "react-native";
+import { View, Text, TouchableOpacity, Image, useWindowDimensions, Alert } from "react-native";
 import { styles } from "./styles";
 import { HeaderDetails } from "../../components/HeaderDetails";
 import { Counter } from "../../components/Counter";
 import cup from '../../assets/cup.png'
 import SmokeSvg from '../../assets/Smoke.svg'
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "../../routes/app.routes";
+import { CoffeCartItemProps } from "../../data/cartData";
+import { coffeCartAdd } from "../../storage/coffeCartStorage";
+
+interface Params { 
+    id: string
+    type: string
+    name: string
+    price: string
+    description: string
+  }
 
 export function Details() {
 
     const { navigate } = useNavigation<AppNavigatorRoutesProps>()
+    const route = useRoute()
+    const { id, name, type, description, price } = route.params as Params
 
-    function handleConfirme() {
-        navigate('home')
+    async function handleConfirme() {
+
+        try {
+            const newCoffe: CoffeCartItemProps = {
+                id,
+                name,
+                amount: '1',
+                image: 'fake-image',
+                price,
+                volume: '270ml'
+            }
+
+            coffeCartAdd(newCoffe)
+            navigate('home')
+            
+        } catch (error) {
+            Alert.alert('Opa', 'Não foi possível adicionar o item no carrinho.');
+        }
     }
 
     const { width } = useWindowDimensions()
@@ -25,19 +53,19 @@ export function Details() {
                 <View>
                     <View style={styles.typeContainer}>
                         <Text style={styles.typeText}>
-                            ESPECIAL
+                            {type}
                         </Text>
                     </View>
                     <View style={styles.rowContainer}>
                         <Text style={styles.name}>
-                            Irlandês
+                            {name}
                         </Text>
                         <Text style={styles.price}>
-                            R$ 9,90
+                            {price}
                         </Text>
                     </View>
                     <Text style={styles.description}>
-                        Bebida a base de café, uísque irlandês, açúcar e chantilly
+                        {description}
                     </Text>
                 </View>
             </View>
@@ -65,7 +93,7 @@ export function Details() {
                         <Text style={styles.volumeText}>140ml</Text>
                     </View>
                     <View style={styles.volumeContainer}>
-                        <Text style={styles.volumeText}>127ml</Text>
+                        <Text style={styles.volumeText}>227ml</Text>
                     </View>
                 </View>
 

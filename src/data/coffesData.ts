@@ -4,7 +4,7 @@ export interface CoffesDataProps {
         type: string,
         name: string,
         price: string,
-        descreption: string,
+        description: string,
         image: string,
 }
 
@@ -14,7 +14,7 @@ export const coffesData = [
         type: 'tradicionais',
         name: 'Expresso Tradicional',
         price: 'R$ 9,90',
-        descreption: 'Café expresso com o dobro de leite e espuma cremosa',
+        description: 'Café expresso com o dobro de leite e espuma cremosa',
         image: 'coffe01.png'
     },
     {
@@ -22,7 +22,7 @@ export const coffesData = [
         type: 'tradicionais',
         name: 'Expresso Americano',
         price: 'R$ 9,90',
-        descreption: 'Café expresso com calda de chocolate, pouco leite e espuma',
+        description: 'Café expresso com calda de chocolate, pouco leite e espuma',
         image: 'coffe02.png'
     },
     {
@@ -30,7 +30,7 @@ export const coffesData = [
         type: 'tradicionais',
         name: 'Expresso Cremoso',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -38,7 +38,7 @@ export const coffesData = [
         type: 'tradicionais',
         name: 'Lattle',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -46,7 +46,7 @@ export const coffesData = [
         type: 'tradicionais',
         name: 'Expresso Gelado',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -54,7 +54,7 @@ export const coffesData = [
         type: 'doces',
         name: 'Capuccino',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -62,7 +62,7 @@ export const coffesData = [
         type: 'doces',
         name: 'Mocaccino',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -70,7 +70,7 @@ export const coffesData = [
         type: 'doces',
         name: 'Chocolate Quente',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -78,7 +78,7 @@ export const coffesData = [
         type: 'doces',
         name: 'Capuccino',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -86,7 +86,7 @@ export const coffesData = [
         type: 'especiais',
         name: 'Cubano',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -94,7 +94,7 @@ export const coffesData = [
         type: 'especiais',
         name: 'Havaiano',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -102,7 +102,7 @@ export const coffesData = [
         type: 'especiais',
         name: 'Irlandês',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
     {
@@ -110,7 +110,7 @@ export const coffesData = [
         type: 'especiais',
         name: 'Árabe',
         price: 'R$ 9,90',
-        descreption: 'Bebida feita com chocolate dissolvido no leite quente e café',
+        description: 'Bebida feita com chocolate dissolvido no leite quente e café',
         image: 'coffe03.png'
     },
 ]

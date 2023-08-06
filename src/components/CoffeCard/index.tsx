@@ -3,8 +3,17 @@ import { styles } from "./styles";
 
 import imageCoffe from '../../assets/coffe01.png'
 import { Counter } from "../Counter";
+import { CoffeCartItemProps } from "../../data/cartData";
 
-export function CoffeCard() {
+interface Props {
+    data: CoffeCartItemProps
+    removeItem: () => void
+}
+
+export function CoffeCard({data, removeItem}: Props) {
+    const { id, name, amount, price, volume} = data
+
+
 
     return (
         <View style={styles.container}>
@@ -16,17 +25,20 @@ export function CoffeCard() {
 
                 <View style={styles.content}>
                     <Text style={styles.textName}>
-                        Irlandês
+                        {name}
                     </Text>
                     <Text style={styles.textVolume}>
-                        270ml
+                        {volume}
                     </Text>
-                    <Counter amount="1"/>
+                    <Counter 
+                        amount={amount}
+                        removeItem={removeItem}
+                    />
                 </View>
             </View>
 
             <Text style={styles.textPrice}>
-                R$ 9,90
+                {price}
             </Text>
         </View>
     )

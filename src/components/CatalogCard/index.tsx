@@ -9,7 +9,7 @@ interface Props extends TouchableOpacityProps {
 
 export function CatalogCard({ data, ...rest }: Props) {
 
-    const { name, descreption, price } = data
+    const { name, description, price } = data
 
     return (
         <TouchableOpacity 
@@ -27,7 +27,7 @@ export function CatalogCard({ data, ...rest }: Props) {
                 </Text>
 
                 <Text style={styles.description}>
-                    {descreption}
+                    {description}
                 </Text>
                 <Text style={styles.price}>
                     {price}

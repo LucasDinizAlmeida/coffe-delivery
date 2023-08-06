@@ -15,12 +15,13 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingVertical: 8,
         paddingHorizontal: 12,
-        width: 100,
+        width: 120,
         backgroundColor: THEME.COLORS.GREY_200,
         borderRadius: 100
     },
     typeText: {
-        color: THEME.COLORS.WHITE
+        color: THEME.COLORS.WHITE,
+        textTransform: 'uppercase'
     },
     rowContainer: {
         flexDirection: 'row',
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     price: {
         color: THEME.COLORS.BRAND_YELLOW_DARK,
         fontFamily: THEME.FONTS.BOLD_BALOO_DA_2,
-        fontSize: 36
+        fontSize: 36,
     },
     description: {
         color: THEME.COLORS.GREY_500,

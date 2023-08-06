@@ -6,10 +6,11 @@ import { THEME } from "../../styles/theme";
 
 interface Props {
     amount: string,
-    trash?: boolean
+    trash?: boolean,
+    removeItem: () => void,
 }
 
-export function Counter({ amount, trash = true}: Props) {
+export function Counter({ amount, removeItem, trash = true}: Props) {
     return (
         <View style={styles.container}>
             <View style={styles.content}>
@@ -35,13 +36,16 @@ export function Counter({ amount, trash = true}: Props) {
 
                 {
                     trash &&
-                    <View style={styles.trashContainer}>
+                    <TouchableOpacity 
+                        style={styles.trashContainer}
+                        onPress={removeItem}
+                    >
                         <Ionicons 
                             name="md-trash-sharp" 
                             size={24} 
                             color={THEME.COLORS.BRAND_PURPLE_DARK} 
                         />
-                    </View>    
+                    </TouchableOpacity>    
                 }
             </View>
         </View>

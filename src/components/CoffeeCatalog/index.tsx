@@ -27,7 +27,7 @@ export function CoffeCatalog({ type, data }: Props) {
                         <CatalogCard 
                             key={item.id}
                             data={item} 
-                            onPress={() => navigate('details', { id: item.id })}
+                            onPress={() => navigate('details', item)}
                         />
                     ))
             }

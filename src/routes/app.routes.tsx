@@ -7,7 +7,13 @@ import { Cart } from '../screens/Cart';
 
 type RootParamlist = {
   home: undefined;
-  details: { id: string };
+  details: { 
+    id: string
+    type: string
+    name: string
+    price: string
+    description: string
+  };
   cart: undefined;
   finish: undefined;
 }

@@ -7,7 +7,11 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
+        padding: 32,
+        marginBottom: 16,
+        backgroundColor: THEME.COLORS.GREY_800,
         paddingVertical: 16
+
     },
     contentContainer: {
         flexDirection: 'row',

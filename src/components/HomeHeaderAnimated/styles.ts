@@ -4,8 +4,7 @@ import { THEME } from "../../styles/theme";
 export const styles = StyleSheet.create({
     container: {
         width: '100%',
-        // position: 'absolute',
-        // zIndex: 1,
+        backgroundColor: THEME.COLORS.GREY_900,
         paddingVertical: 28,
         paddingHorizontal: 32,
         marginTop: 44,

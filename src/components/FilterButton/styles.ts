@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     typeText: {
-        color: THEME.COLORS.BRAND_PURPLE,
+        // color: THEME.COLORS.BRAND_PURPLE,
         fontFamily: THEME.FONTS.BOLD,
         fontSize: 10
     }

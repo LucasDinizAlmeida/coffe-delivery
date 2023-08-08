@@ -8,6 +8,7 @@ import {
 } from '@expo-google-fonts/baloo-da-2';
 import { Routes } from './src/routes';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { IndicatorExample } from './src/components/Slide';
 
 
 export default function App() {
@@ -30,7 +31,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Routes />
+      <IndicatorExample />
     </GestureHandlerRootView>
   );
 }

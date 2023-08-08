@@ -2,6 +2,29 @@ import { StyleSheet } from "react-native";
 import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
+    containerHeader: {
+        width: '100%',
+        position: 'absolute',
+        backgroundColor: 'transparent',
+        zIndex: 1,
+        top: 32,
+        paddingVertical: 28,
+        paddingHorizontal: 32,
+        // marginTop: 44,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    locationContainer: {
+        flexDirection: 'row',
+        lignItems: 'center',
+    },
+    locationText: {
+        fontFamily: THEME.FONTS.REGULAR,
+        fontSize: 14,
+        color: THEME.COLORS.GREY_900,
+        marginLeft: 8
+    },
     container: {
         flex: 1,
         backgroundColor: THEME.COLORS.GREY_900,
@@ -9,10 +32,11 @@ export const styles = StyleSheet.create({
     content: {
         width: '100%',
         backgroundColor: THEME.COLORS.GREY_100,
-        paddingBottom: 137
+        paddingVertical: 137
     },
     searchContainer: {
         width: '100%',
+        paddingTop: 38,
         paddingHorizontal: 32,
         marginTop: 20,
     },

@@ -1,27 +1,67 @@
 import { Pressable, Text, PressableProps } from "react-native";
 import { styles } from "./styles";
 import { THEME } from "../../styles/theme";
+import Animated, { Easing, interpolateColor, useAnimatedStyle, useSharedValue, withTiming } from "react-native-reanimated";
+import { useEffect } from "react";
 
 interface Props extends PressableProps {
     title: string
     isChecked: boolean
 }
 
+const PressableAnimated = Animated.createAnimatedComponent(Pressable)
+
 export function FilterButton({ title, isChecked, ...rest}: Props) {
 
-    const BACKGROUND_COLOR = isChecked? THEME.COLORS.BRAND_PURPLE : 'transparent'
-    const COLOR = isChecked? 'white' : THEME.COLORS.BRAND_PURPLE 
+    const COLOR = THEME.COLORS.BRAND_PURPLE
+
+    const scale = useSharedValue(1)
+    const checked = useSharedValue(1)
+
+    const animatedContainerStyle = useAnimatedStyle(() => {
+        return {
+            transform: [{ scale: scale.value }],
+            backgroundColor: interpolateColor(
+                checked.value,
+                [0, 1],
+                ['transparent', COLOR]
+              )
+        }
+    })
+
+    const animatedTextStyle = useAnimatedStyle(() => {
+        return {
+          color: interpolateColor(
+            checked.value,
+            [0, 1],
+            [COLOR, THEME.COLORS.WHITE]
+          )
+        }
+      })
+
+    function onPressIn() {
+        scale.value = withTiming(1.15, { duration: 300, easing: Easing.bounce })
+    }
+    function onPressOut() {
+        scale.value = withTiming(1, { duration: 300, easing: Easing.bounce })
+    }
+
+    useEffect(() => {
+        checked.value = isChecked? 1 : 0
+    }, [isChecked])
 
     return (
-        <Pressable 
-            style={[styles.container, { backgroundColor: BACKGROUND_COLOR}]}
+        <PressableAnimated 
+            onPressIn={onPressIn}
+            onPressOut={onPressOut}
+            style={[styles.container, animatedContainerStyle]}
             {...rest}
         >
-            <Text 
-                style={[styles.typeText, { color: COLOR}]}
+            <Animated.Text
+                style={[styles.typeText, animatedTextStyle]}
             >
                 {title}
-            </Text>
-        </Pressable>
+            </Animated.Text>
+        </PressableAnimated>
 )
 }

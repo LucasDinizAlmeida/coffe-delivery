@@ -4,8 +4,10 @@ import { Home } from '../screens/Home';
 import { Finish } from '../screens/Finish';
 import { Details } from '../screens/details';
 import { Cart } from '../screens/Cart';
+import { Splash } from '../screens/Splash';
 
 type RootParamlist = {
+  splash: undefined;
   home: undefined;
   details: { 
     id: string
@@ -29,6 +31,10 @@ export function AppRoutes() {
         headerShown: false
       }}
     >
+        <Screen
+            name="splash"
+            component={Splash}
+        />
         <Screen
             name="home"
             component={Home}

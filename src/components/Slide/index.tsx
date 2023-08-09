@@ -9,12 +9,14 @@ import Animated, {
   Extrapolate,
 } from "react-native-reanimated";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { CardPromotion } from "../CardPromotion";
+import { coffesPromotionData } from "../../data/coffesPromotionData";
 
 const { width, height } = Dimensions.get("screen");
 
 const textColor = "#2A3B38";
 const gray = "#A0A0A0";
-const slideWidth = width * 0.75;
+const slideWidth = width * 0.60;
 const slideHeight = height * 0.5;
 
 const slides = [
@@ -43,7 +45,7 @@ const Slide = ({ slide, scrollOffset, index }: any) => {
           scale: interpolate(
             input,
             inputRange,
-            [0.8, 1, 0.8],
+            [0.7, 1, 0.7],
             Extrapolate.CLAMP
           ),
         },
@@ -58,68 +60,20 @@ const Slide = ({ slide, scrollOffset, index }: any) => {
         {
           flex: 1,
           width: slideWidth,
-          height: slideHeight,
+          // height: slideHeight,
           paddingVertical: 10,
         },
         animatedStyle,
       ]}
     >
-      <View
-        style={{
-          padding: 10,
-          alignItems: "center",
-          borderColor: textColor,
-          borderWidth: 3,
-          borderRadius: 10,
-          height: "100%",
-          justifyContent: "center",
-        }}
-      >
-        <Ionicons name={slide.icon} size={100} color={textColor} />
-        <Text
-          style={{
-            color: textColor,
-            fontSize: 30,
-            fontWeight: "bold",
-          }}
-        >
-          {slide.text}
-        </Text>
-      </View>
+      <CardPromotion 
+        data={slide}
+        // onPress={() => navigate('details', item)}
+    />
     </Animated.View>
   );
 };
 
-const Indicator = ({ scrollOffset, index }: any) => {
-  const animatedStyle = useAnimatedStyle(() => {
-    const input = scrollOffset.value / slideWidth;
-    const inputRange = [index - 1, index, index + 1];
-    const animatedColor = interpolateColor(input, inputRange, [
-      gray,
-      textColor,
-      gray,
-    ]);
-
-    return {
-      width: interpolate(input, inputRange, [20, 40, 20], Extrapolate.CLAMP),
-      backgroundColor: animatedColor,
-    };
-  });
-
-  return (
-    <Animated.View
-      style={[
-        {
-          marginHorizontal: 5,
-          height: 20,
-          borderRadius: 10,
-          backgroundColor: textColor,
-        },
-        animatedStyle,
-      ]}
-    />
-  );
-};
 
 export const IndicatorExample = () => {
   const scrollOffset = useSharedValue(0);
@@ -130,7 +84,7 @@ export const IndicatorExample = () => {
   });
 
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: "space-around" }}>
+    <SafeAreaView style={{ flex: 1, justifyContent: "space-around", marginTop: -100 }}>
       <Animated.ScrollView
         scrollEventThrottle={1}
         horizontal
@@ -139,12 +93,12 @@ export const IndicatorExample = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           alignItems: "center",
-          paddingHorizontal: (width - slideWidth) / 2,
+          paddingHorizontal: (width - slideWidth) / 5,
           justifyContent: "center",
         }}
         onScroll={scrollHandler}
       >
-        {slides.map((slide, index) => {
+        {coffesPromotionData.map((slide, index) => {
           return (
             <Slide
               key={index}
@@ -155,13 +109,6 @@ export const IndicatorExample = () => {
           );
         })}
       </Animated.ScrollView>
-      <View style={{ flex: 1, flexDirection: "row", justifyContent: "center" }}>
-        {slides.map((_, index) => {
-          return (
-            <Indicator key={index} index={index} scrollOffset={scrollOffset} />
-          );
-        })}
-      </View>
     </SafeAreaView>
   );
 };

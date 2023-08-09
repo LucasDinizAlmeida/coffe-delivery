@@ -34,7 +34,7 @@ export function Finish() {
     })
 
     useEffect(() => {
-        scaleMotoboy.value = withTiming(1, { duration: 800, easing: Easing.bounce })
+        scaleMotoboy.value = withTiming(1, { duration: 800, easing: Easing.linear })
         scale.value = withDelay(500, withTiming(1, { duration: 500 }))
     }, [])
 

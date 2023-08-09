@@ -1,4 +1,4 @@
-import { Image, View, Text, TouchableOpacity, TouchableOpacityProps, Pressable } from "react-native";
+import { Image, View, Text, TouchableOpacity, TouchableOpacityProps, Pressable, Dimensions } from "react-native";
 import { styles } from "./styles";
 import coffePng from '../../assets/coffe01.png'
 import Animated from "react-native-reanimated";
@@ -15,6 +15,8 @@ interface Props extends TouchableOpacityProps {
 }
 
 const PressableAnimated = Animated.createAnimatedComponent(Pressable)
+const { width, height } = Dimensions.get("screen");
+const slideWidth = width * 0.60;
 
 export function CardPromotion({ data, ...rest }: Props) {
 
@@ -27,7 +29,7 @@ export function CardPromotion({ data, ...rest }: Props) {
             <View 
                 style={{ flex: 1, height: 50 } }
             />
-            <View style={styles.container}>
+            <View style={[styles.container, { width: slideWidth }]}>
                 <View style={{ top: -50, position: 'absolute'}}>
                     <Image 
                         source={coffePng}

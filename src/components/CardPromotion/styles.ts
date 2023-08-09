@@ -3,9 +3,9 @@ import { THEME } from "../../styles/theme";
 
 export const styles = StyleSheet.create({
     container: {
-        width: 208,
+        // width: 208,
         height: 262,
-        marginRight: 32,
+        // marginRight: 32,
         paddingHorizontal: 16,
         backgroundColor: THEME.COLORS.GREY_800,
         borderTopRightRadius: 36,

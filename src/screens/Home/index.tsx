@@ -9,11 +9,10 @@ import { THEME } from "../../styles/theme";
 import { useNavigation } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
-import { coffesPromotionData } from "../../data/coffesPromotionData";
 import { coffesData } from "../../data/coffesData";
 import { FilterButton } from "../../components/FilterButton";
 import Animated, { Extrapolate, interpolate, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, interpolateColor, useAnimatedRef } from "react-native-reanimated";
-import { ScrollXPromotions } from "../../components/ScrollXPromotions";
+import { IndicatorExample } from "../../components/Slide";
 
 export function Home() {
 
@@ -23,8 +22,6 @@ export function Home() {
 
     const scrollY = useSharedValue(0)
 
-    const scrollX = useSharedValue(0);
-
     const scrollViewRef = useRef(null);
 
     const scrollToComponent = (scrollLevel: number) => {
@@ -32,13 +29,6 @@ export function Home() {
         scrollViewRef.current.scrollTo({ y: scrollLevel, animated: true }); 
       }
     };
-
-    
-
-    const handleScrollX = useAnimatedScrollHandler((event) => {
-        console.log(event.contentOffset.x)
-        scrollX.value = event.contentOffset.x;
-    });
 
 
 
@@ -104,6 +94,7 @@ export function Home() {
     const scrollHandle = useAnimatedScrollHandler({
         onScroll: (event) => {
             scrollY.value = event.contentOffset.y
+            console.log(event.contentOffset.y)
         }
     })
     
@@ -130,16 +121,12 @@ export function Home() {
         setLevels(level)
         scrollToComponent(scrollLevel)
       }
-
-      useEffect(() => {
-        scrollY.value = 1550
-      }, [levels])
  
 
     return (
         <>  
-            <Animated.View style={[fixedHeaderStyle, { position: 'absolute', zIndex: 1}]}>
-                <Animated.View style={[styles.containerHeader, fixedHeaderStyle]}>
+            <Animated.View style={[{ position: 'absolute', zIndex: 1}, fixedHeaderStyle]}>
+                <Animated.View style={[styles.containerHeader]}>
                     <View style={styles.locationContainer}>
                         <Ionicons 
                             name="location-sharp" 
@@ -151,7 +138,7 @@ export function Home() {
                         </Animated.Text>
                     </View>
 
-                    <TouchableOpacity onPress={() => {}}>
+                    <TouchableOpacity onPress={() => navigate('cart')}>
                         <AntDesign 
                             name="shoppingcart" 
                             size={24} 
@@ -212,25 +199,8 @@ export function Home() {
                 </Animated.View>
 
                 <View style={{ flex: 1 }}>
-                    {/* <Animated.ScrollView
-                        horizontal={true}
-                        onScroll={handleScrollX}
-                        style={{ marginTop: -80 }}
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{ paddingHorizontal: 32 }}
-                    >
-                        {
-                            coffesPromotionData.map(item => (
-                                <CardPromotion 
-                                    key={item.id}
-                                    data={item}
-                                    onPress={() => navigate('details', item)}
-                                />
-                            ))
-                        }
-                        
-                    </Animated.ScrollView> */}
-                    <ScrollXPromotions />
+            
+                    <IndicatorExample />
 
                     <View style={styles.filterContainer}>
                         <Text style={styles.filterTitle}>

@@ -1,4 +1,4 @@
-import { Image, View, Text, TouchableOpacity, TouchableOpacityProps, Pressable, Dimensions } from "react-native";
+import { Image, View, Text, Pressable, TouchableOpacityProps, Dimensions, TouchableOpacity } from "react-native";
 import { styles } from "./styles";
 import coffePng from '../../assets/coffe01.png'
 import Animated from "react-native-reanimated";
@@ -23,7 +23,8 @@ export function CardPromotion({ data, ...rest }: Props) {
     const {type, name, description, price } = data
 
     return (
-        <Pressable 
+        <TouchableOpacity 
+            activeOpacity={0.7}
             {...rest}
         >
             <View 
@@ -50,6 +51,6 @@ export function CardPromotion({ data, ...rest }: Props) {
                 </Text>
             </View>
 
-            </Pressable>
+            </TouchableOpacity>
     )
 }

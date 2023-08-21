@@ -11,6 +11,8 @@ import Animated, {
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { CardPromotion } from "../CardPromotion";
 import { coffesPromotionData } from "../../data/coffesPromotionData";
+import { useNavigation } from "@react-navigation/native";
+import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -34,7 +36,11 @@ const slides = [
   },
 ];
 
-const Slide = ({ slide, scrollOffset, index }: any) => {
+interface SlideProps {
+  onPress: () => void
+}
+
+const Slide = ({ slide, scrollOffset, index, onPress }: any) => {
   const animatedStyle = useAnimatedStyle(() => {
     const input = scrollOffset.value / slideWidth;
     const inputRange = [index - 1, index, index + 1];
@@ -68,7 +74,7 @@ const Slide = ({ slide, scrollOffset, index }: any) => {
     >
       <CardPromotion 
         data={slide}
-        // onPress={() => navigate('details', item)}
+        onPress={onPress}
     />
     </Animated.View>
   );
@@ -82,6 +88,10 @@ export const IndicatorExample = () => {
       scrollOffset.value = event.contentOffset.x;
     },
   });
+
+  const navigation = useNavigation<AppNavigatorRoutesProps>()
+
+  
 
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: "space-around", marginTop: -100 }}>
@@ -99,12 +109,17 @@ export const IndicatorExample = () => {
         onScroll={scrollHandler}
       >
         {coffesPromotionData.map((slide, index) => {
+
+          const { id, description, name, price, type } = slide
+
           return (
+
             <Slide
               key={index}
               index={index}
               slide={slide}
               scrollOffset={scrollOffset}
+              onPress={() => navigation.navigate('details', { id, description, name, price, type })}
             />
           );
         })}

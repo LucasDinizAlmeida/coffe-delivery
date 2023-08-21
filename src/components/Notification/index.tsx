@@ -9,13 +9,13 @@ export function Notification() {
     return (
         <Pressable style={styles.container}>
             <View style={styles.content}>
-                <Ionicons name="cart" size={24} color={THEME.COLORS.BRAND_PURPLE_DARK} />
+                <Ionicons name="cart" size={32} color={THEME.COLORS.BRAND_PURPLE_DARK} />
 
                 <Text style={styles.title}>
                     Item adicionado ao carrinho
                 </Text>
 
-                <Feather name="arrow-right" size={24} color={THEME.COLORS.BRAND_PURPLE_DARK} />
+                <Feather name="arrow-right" size={32} color={THEME.COLORS.BRAND_PURPLE_DARK} />
             </View>
         </Pressable>
     )

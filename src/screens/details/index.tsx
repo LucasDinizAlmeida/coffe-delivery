@@ -8,6 +8,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { AppNavigatorRoutesProps } from "../../routes/app.routes";
 import { CoffeCartItemProps } from "../../data/cartData";
 import { coffeCartAdd } from "../../storage/coffeCartStorage";
+import Toast from "react-native-toast-message";
 
 interface Params { 
     id: string
@@ -36,6 +37,11 @@ export function Details() {
             }
 
             coffeCartAdd(newCoffe)
+
+            Toast.show({
+                type: 'info'
+            })
+
             navigate('home')
             
         } catch (error) {
